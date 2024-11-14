@@ -1,0 +1,176 @@
+/* Definir la fuente normal (regular) */
+@font-face {
+    font-family: 'YuGiOh-Regular';
+    src: url('assets/fonts/yu-gi-oh-matrix.ttf') format('truetype');
+}
+
+/* Definir la fuente en negrita (bold) */
+@font-face {
+    font-family: 'YuGiOh-Bold';
+    src: url('assets/fonts/yu-gi-oh-matrix-bold.ttf') format('truetype');
+}
+
+/* Secciones de contenido */
+.content-section {
+    background: rgba(73, 15, 135, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Estilos generales para el cuerpo */
+body {
+    font-family: 'YuGiOh-Bold', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+/* Sección para mostrar formulario y carta lado a lado */
+section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    transform: scale(0.67); /* Escala todo el contenido al 75% de su tamaño */
+}
+
+/* Estilo para el formulario de creación de carta */
+#cardCreator {
+    background-color: white;
+    padding: 20px;
+    margin-top: 0;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 600px;
+}
+
+/* Estilo para los inputs, selects y textarea */
+#cardCreator input, #cardCreator select, #cardCreator textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Estilo para los botones */
+button {
+    background-color: #6c138f;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #a04577;
+}
+
+/* Vista previa de la carta */
+#cardPreview {
+    width: 50%;
+    padding: 20px;
+    margin-top: -10;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para el canvas donde se dibuja la carta */
+canvas {
+    border: 2px solid #000;
+    background-color: #fff;
+}
+
+/* Plantilla de la carta */
+.card-template {
+    position: relative;
+    width: 421px;
+    height: 614px;
+    background-color: #f1f1f1;
+    border: 5px solid #8b1686;
+    border-radius: 10px;
+}
+
+.card-template img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-template .card-info {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    right: 10px;
+    color: #8b1686;
+    font-size: 14px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+}
+
+.card-template .card-info h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Estilo específico para el nombre de la carta */
+#cardName {
+    font-size: 14px;
+    font-family: 'YuGiOh-Bold', sans-serif;
+    color: #ffffff;
+    width: 280px; /* Aseguramos que no sobresalga */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#cardEffect {
+    font-family: 'YuGiOh-Regular', sans-serif;
+    width: 90%;
+    padding: 10px;
+    margin: 0px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#cardLevel, #cardType {
+    font-family: 'YuGiOh-Regular', sans-serif;
+}
+
+/* Añadir espacio entre los campos de entrada */
+h4 {
+    color: #6c138f;
+}
+
+/* Estilo de campos ocultos y visibles */
+#monsterStats.hidden {
+    display: none;
+}
+
+/* Estilo para mostrar los inputs de Ataque y Defensa cuando corresponda */
+#cardAttack,
+#cardDefense {
+    margin-top: 10px;
+}
+
+/* Ajustes adicionales */
+#cardName, #cardEffect, #cardLevel {
+    margin-bottom: 10px;
+}

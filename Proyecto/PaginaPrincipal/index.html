@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Cartas Yu-Gi-Oh!</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<style>
+    body {
+
+
+        margin: 0;
+        padding: 0;
+        font-family: 'YuGiOh-Bold', sans-serif;
+        background-color: #1a1a1a;
+        color: #8b1686;
+        background-image: linear-gradient(rgba(197, 48, 211, 0.308), rgba(0, 0, 0, 0.7)),
+            url(''); /* Cambia la imagen de fondo*/
+        background-size: cover;
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+    }
+
+/* Sección para mostrar formulario y carta lado a lado */
+section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; 
+    position: relative; /* Cambié esto */
+    top: -150px; /* Este ajuste moverá todo hacia arriba */
+    transform: scale(0.67); /* Escala todo el contenido al 75% de su tamaño */
+}
+
+
+    #cardCreator {
+        width: 50%;
+        max-width: 600px;
+        
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+        text-align: center;
+        color: #fff;
+    }
+
+    h4 {
+        color: #fff;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #8b1686;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #8b1686;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #7a1473;
+    }
+
+    /* La plantilla de la carta */
+    #cardPreview {
+        width: 55%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    #cardCanvas {
+        width: 100%;
+        height: 100%;
+        border: 0px solid #8b1686;
+        border-radius: 10px;
+    }
+
+    /* Estilo de campos ocultos y visibles */
+    #monsterStats.hidden {
+        display: none;
+    
+    }
+
+</style>
+<body>
+    
+<section>
+    <div id="cardCreator">
+        <h1>Crea tu Carta de Yu-Gi-Oh!</h1>
+
+        <!-- Campo para el nombre de la carta -->
+        <h4><label for="cardName">Nombre de la carta:</label></h4>
+        <input type="text" id="cardName" placeholder="Escribe el nombre de la carta">
+
+        <!-- Selección de tipo de carta -->
+        <h4><label for="cardType">Tipo de carta:</label></h4>
+        <select id="cardType">
+            <option value="Monstruo">Monstruo</option>
+            <option value="Hechizo">Hechizo</option>
+            <option value="Trampa">Trampa</option>
+        </select>
+
+        <!-- Campo para el efecto de la carta -->
+        <h4><label for="cardEffect">Efecto de la carta:</label></h4>
+        <input type="text" id="cardEffect" placeholder="Escribe el efecto de la carta...">
+
+        <!-- Campo para seleccionar el nivel de la carta (número de estrellas para un monstruo) -->
+        <h4><label for="cardLevel">Nivel del Monstruo (Estrellas):</label></h4>
+        <select id="cardLevel">
+            <option value="1">1 Estrella</option>
+            <option value="2">2 Estrellas</option>
+            <option value="3">3 Estrellas</option>
+            <option value="4">4 Estrellas</option>
+            <option value="5">5 Estrellas</option>
+            <option value="6">6 Estrellas</option>
+            <option value="7">7 Estrellas</option>
+            <option value="8">8 Estrellas</option>
+            <option value="9">9 Estrellas</option>
+            <option value="10">10 Estrellas</option>
+            <option value="11">11 Estrellas</option>
+            <option value="12">12 Estrellas</option>
+        </select>
+
+        <!-- Campos para Ataque y Defensa (Solo para Monstruos) -->
+        <div id="monsterStats" class="hidden">
+            <h4><label for="cardAttack">Valor de Ataque:</label></h4>
+            <h2><input type="number" id="cardAttack" placeholder="Escribe el valor de ataque" min="0"></h2>
+
+            <h4><label for="cardDefense">Valor de Defensa:</label></h4>
+            <input type="number" id="cardDefense" placeholder="Escribe el valor de defensa" min="0">
+        </div>
+
+        <!-- Campo para subir una imagen -->
+        <h4><label for="cardImage">Sube una imagen para la carta:</label></h4>
+        <input type="file" id="cardImage" accept="image/*">
+
+        <!-- Botón para generar la carta -->
+        <button id="generateCard">Generar Carta</button>
+        <!-- Botón para descargar la carta generada -->
+        <button id="downloadCard">Descargar Carta</button>
+        <button id="publishCard">Publicar Carta en Portal Yu-Gi-Oh</button>
+    </div>
+
+    <div id="cardPreview">
+        <!-- Canvas para mostrar la carta generada -->
+        <canvas id="cardCanvas" width="421" height="614"></canvas>
+        
+
+    </div>
+</section>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
